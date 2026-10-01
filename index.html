@@ -19,7 +19,7 @@
     <nav class="nav" id="main-nav" aria-label="Điều hướng chính">
       <a href="#home">Trang chủ</a><a href="#topics">Chủ đề</a><a href="#articles">Bài viết</a><a href="#about">Về Chạm</a>
     </nav>
-    <div class="header-tools"><button class="theme-toggle" type="button" aria-label="Chuyển chế độ tối" title="Chuyển chế độ sáng/tối">☾</button><a class="header-cta" href="#newsletter">Nhận cảm hứng <span>↗</span></a></div>
+    <div class="header-tools"><button class="login-trigger" id="login-trigger" type="button">Đăng nhập</button><button class="logout-trigger" id="logout-trigger" type="button" hidden>Đăng xuất</button><button class="theme-toggle" type="button" aria-label="Chuyển chế độ tối" title="Chuyển chế độ sáng/tối">☾</button><a class="header-cta" href="#newsletter">Nhận cảm hứng <span>↗</span></a></div>
   </header>
 
   <main id="home">
@@ -43,9 +43,9 @@
     <section class="topics wrap" id="topics">
       <div class="section-head"><div><p class="eyebrow">BẮT ĐẦU TỪ ĐÂU?</p><h2>Chọn điều bạn <em>đang cần.</em></h2></div><a class="plain-link" href="#articles">Tất cả bài viết <span>→</span></a></div>
       <div class="topic-grid">
-        <a class="topic-card topic-study" href="#articles"><span class="topic-number">01 / HỌC TẬP</span><span class="topic-symbol">✎</span><h3>Học tập<br>thông minh</h3><span class="topic-arrow">↗</span></a>
-        <a class="topic-card topic-career" href="#articles"><span class="topic-number">02 / HƯỚNG NGHIỆP</span><span class="topic-symbol">⌁</span><h3>Tìm đường<br>mình muốn đi</h3><span class="topic-arrow">↗</span></a>
-        <a class="topic-card topic-skills" href="#articles"><span class="topic-number">03 / KỸ NĂNG</span><span class="topic-symbol">✳</span><h3>Lớn lên<br>mỗi ngày</h3><span class="topic-arrow">↗</span></a>
+        <a class="topic-card topic-study" data-topic="HỌC TẬP" href="#articles"><span class="topic-number">01 / HỌC TẬP</span><span class="topic-symbol">✎</span><h3>Học tập<br>thông minh</h3><span class="topic-arrow">↗</span></a>
+        <a class="topic-card topic-career" data-topic="NGHỀ NGHIỆP" href="#articles"><span class="topic-number">02 / HƯỚNG NGHIỆP</span><span class="topic-symbol">⌁</span><h3>Tìm đường<br>mình muốn đi</h3><span class="topic-arrow">↗</span></a>
+        <a class="topic-card topic-skills" data-topic="KỸ NĂNG" href="#articles"><span class="topic-number">03 / KỸ NĂNG</span><span class="topic-symbol">✳</span><h3>Lớn lên<br>mỗi ngày</h3><span class="topic-arrow">↗</span></a>
       </div>
     </section>
 
@@ -66,6 +66,20 @@
 
     <section class="newsletter" id="newsletter"><div class="wrap newsletter-inner"><div><p class="eyebrow">MỘT CHÚT CẢM HỨNG MỖI TUẦN</p><h2>Đi chậm thôi.<br><em>Miễn là đi tiếp.</em></h2></div><form id="newsletter-form"><label for="email">Để lại email, Chạm gửi bạn bài viết mới nhé</label><div class="email-row"><input id="email" name="email" type="email" placeholder="Email của bạn" required><button type="submit" aria-label="Đăng ký nhận bài">↗</button></div><small id="form-message">Không spam. Chỉ gửi những điều thật sự hữu ích.</small></form><span class="newsletter-flower" aria-hidden="true">✳</span></div></section>
   </main>
+  <button class="back-to-top" type="button" aria-label="Lên đầu trang">↑</button>
+  <dialog class="login-dialog" id="login-dialog" aria-labelledby="login-title">
+    <form class="login-form" id="login-form">
+      <button class="dialog-close" type="button" aria-label="Đóng">×</button>
+      <p class="eyebrow">CHÀO MỪNG BẠN ĐẾN VỚI CHẠM</p>
+      <h2 id="login-title">Đăng nhập <em>demo.</em></h2>
+      <p class="login-description">Tạo lời chào cá nhân trên thiết bị này.</p>
+      <label for="login-name">Tên hiển thị</label><input id="login-name" name="name" autocomplete="name" maxlength="40" placeholder="Tên của bạn" required>
+      <label for="login-email">Email</label><input id="login-email" name="email" type="email" autocomplete="email" placeholder="ban@email.com" required>
+      <label for="login-password">Mật khẩu</label><input id="login-password" name="password" type="password" autocomplete="current-password" minlength="6" placeholder="Ít nhất 6 ký tự" required>
+      <button class="button button-dark login-submit" type="submit">Tiếp tục <span>↗</span></button>
+      <small id="login-message">Bản demo không xác thực tài khoản và không lưu mật khẩu.</small>
+    </form>
+  </dialog>
   <footer class="footer"><a class="brand" href="#home"><span class="brand-icon">c.</span> chạm<span class="brand-period">.</span></a><span>© 2026 Chạm. Đi theo nhịp của riêng bạn.</span><a href="#home">Lên đầu trang ↑</a></footer>
   <script>
     const menuButton = document.querySelector('.menu-toggle');
@@ -130,6 +144,12 @@
     });
     search.addEventListener('input', refreshCards);
     categoryFilter.addEventListener('change', refreshCards);
+    document.querySelectorAll('.topic-card[data-topic]').forEach(topic => topic.addEventListener('click', () => {
+      categoryFilter.value = topic.dataset.topic;
+      favoritesFilter.setAttribute('aria-pressed', 'false');
+      favoritesFilter.textContent = '♡ Chỉ xem bài đã lưu';
+      refreshCards();
+    }));
     favoritesFilter.addEventListener('click', () => {
       const enabled = favoritesFilter.getAttribute('aria-pressed') !== 'true';
       favoritesFilter.setAttribute('aria-pressed', String(enabled));
@@ -137,6 +157,49 @@
       refreshCards();
     });
     refreshCards();
+    document.addEventListener('keydown', event => {
+      if (event.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        event.preventDefault(); search.focus(); document.querySelector('#articles').scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => backToTop.classList.toggle('is-visible', window.scrollY > 500), { passive: true });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const loginDialog = document.querySelector('#login-dialog');
+    const loginTrigger = document.querySelector('#login-trigger');
+    const logoutTrigger = document.querySelector('#logout-trigger');
+    const profileKey = 'cham-demo-profile';
+    const updateProfileButton = () => {
+      const profile = JSON.parse(localStorage.getItem(profileKey) || 'null');
+      loginTrigger.textContent = profile ? `Chào, ${profile.name}` : 'Đăng nhập';
+      logoutTrigger.hidden = !profile;
+    };
+    loginTrigger.addEventListener('click', () => {
+      if (localStorage.getItem(profileKey)) {
+        document.querySelector('#login-title').textContent = 'Bạn đã đăng nhập demo';
+        document.querySelector('#login-message').textContent = 'Trạng thái này chỉ có trên trình duyệt và thiết bị hiện tại.';
+      }
+      loginDialog.showModal();
+    });
+    document.querySelector('.dialog-close').addEventListener('click', () => loginDialog.close());
+    loginDialog.addEventListener('click', event => { if (event.target === loginDialog) loginDialog.close(); });
+    document.querySelector('#login-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const profile = { name: form.elements.name.value.trim(), email: form.elements.email.value.trim() };
+      localStorage.setItem(profileKey, JSON.stringify(profile));
+      document.querySelector('#login-message').textContent = `Xin chào ${profile.name}! Bạn đang dùng phiên đăng nhập demo.`;
+      updateProfileButton();
+      window.setTimeout(() => loginDialog.close(), 900);
+    });
+    logoutTrigger.addEventListener('click', () => {
+      localStorage.removeItem(profileKey);
+      document.querySelector('#login-form').reset();
+      document.querySelector('#login-title').innerHTML = 'Đăng nhập <em>demo.</em>';
+      document.querySelector('#login-message').textContent = 'Bản demo không xác thực tài khoản và không lưu mật khẩu.';
+      updateProfileButton();
+    });
+    updateProfileButton();
     document.querySelector('#newsletter-form').addEventListener('submit', event => {
       event.preventDefault();
       document.querySelector('#form-message').textContent = 'Cảm ơn bạn! Chức năng đăng ký cần được kết nối với dịch vụ email.';
