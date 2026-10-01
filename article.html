@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c16">
+  <meta name="description" content="Bài viết dành cho hành trình học tập và trưởng thành của bạn.">
+  <title>Bài viết — Chạm</title>
+  <link rel="stylesheet" href="sytle.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="announcement">MỘT GÓC NHỎ ĐỂ BẠN LỚN LÊN <span>✳</span> BẮT ĐẦU TỪ HÔM NAY</div>
+  <header class="site-header">
+    <a class="brand" href="index.html#home"><span class="brand-icon">c.</span> chạm<span class="brand-period">.</span></a>
+    <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+    <nav class="nav" id="main-nav" aria-label="Điều hướng chính"><a href="index.html#home">Trang chủ</a><a href="index.html#topics">Chủ đề</a><a href="index.html#articles">Bài viết</a><a href="index.html#about">Về Chạm</a></nav>
+    <div class="header-tools"><button class="theme-toggle" type="button" aria-label="Chuyển chế độ tối" title="Chuyển chế độ sáng/tối">☾</button><a class="header-cta" href="index.html#articles">← Tất cả bài viết</a></div>
+  </header>
+  <main class="article-page wrap">
+    <a class="back-link" href="index.html#articles">← Quay lại danh sách</a>
+    <article id="article-content" class="reading-article"></article>
+    <section class="comments-section" aria-labelledby="comments-title">
+      <p class="eyebrow">GÓC TRÒ CHUYỆN</p><h2 id="comments-title">Để lại một <em>bình luận.</em></h2>
+      <form id="comment-form" class="comment-form"><label for="comment-name">Tên của bạn</label><input id="comment-name" name="name" maxlength="40" placeholder="Ví dụ: Minh Anh" required><label for="comment-text">Bạn nghĩ gì về bài viết?</label><textarea id="comment-text" name="comment" rows="4" maxlength="500" placeholder="Chia sẻ suy nghĩ của bạn..." required></textarea><button class="button button-dark" type="submit">Gửi bình luận <span>↗</span></button><small>Bình luận được lưu trên trình duyệt đang sử dụng.</small></form>
+      <div id="comment-list" class="comment-list" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer class="footer"><a class="brand" href="index.html#home"><span class="brand-icon">c.</span> chạm<span class="brand-period">.</span></a><span>© 2026 Chạm. Đi theo nhịp của riêng bạn.</span><a href="index.html#articles">Tất cả bài viết ↑</a></footer>
+  <script>
+    const entries = {
+      'plan-hoc-tap': { category: 'HỌC TẬP', date: '24 THÁNG 9, 2026 · 6 PHÚT ĐỌC', title: 'Lập kế hoạch học tập mà không tự làm khó mình', intro: 'Một kế hoạch tốt không cần kín lịch. Nó cần đủ rõ để bạn biết bước tiếp theo là gì.', sections: [['Bắt đầu từ điều quan trọng', 'Thay vì viết một danh sách dài, hãy chọn ba việc quan trọng nhất trong tuần. Chia mỗi việc thành bước nhỏ để có thể bắt đầu ngay cả khi bạn chỉ có nửa tiếng rảnh.'], ['Để chỗ cho cuộc sống', 'Lịch học sẽ dễ theo hơn khi có cả giờ nghỉ, giờ ăn và thời gian di chuyển. Đừng lấp kín mọi ô trống; một khoảng dự phòng giúp bạn không phải bỏ cuộc chỉ vì một ngày lệch kế hoạch.'], ['Xem lại và điều chỉnh', 'Cuối tuần, dành vài phút nhìn lại điều gì hiệu quả. Kế hoạch là công cụ phục vụ bạn, nên hãy đổi cách làm khi nó không còn phù hợp.']] },
+      'on-bai-chu-dong': { category: 'HỌC TẬP', date: '18 THÁNG 9, 2026 · 5 PHÚT ĐỌC', title: 'Ôn bài để nhớ lâu: thử phương pháp nhớ chủ động', intro: 'Đọc lại thường tạo cảm giác quen thuộc. Tự nhớ lại mới giúp kiến thức ở lại lâu hơn.', sections: [['Đóng tài liệu lại', 'Sau khi học một phần, hãy thử giải thích ý chính bằng lời của mình mà không nhìn tài liệu. Những chỗ bạn chưa diễn đạt được là chỗ cần ôn thêm.'], ['Tự đặt câu hỏi', 'Biến tiêu đề và ghi chú thành câu hỏi ngắn. Trả lời chúng sau một khoảng nghỉ, rồi kiểm tra lại bằng giáo trình. Cách này giúp bạn nhận ra mình thực sự nhớ được gì.'], ['Ôn cách quãng', 'Thay vì học dồn một buổi, quay lại nội dung sau một ngày, vài ngày rồi một tuần. Những lần nhớ lại ngắn thường hữu ích hơn việc đọc đi đọc lại liên tục.']] },
+      'portfolio-dau-tien': { category: 'NGHỀ NGHIỆP', date: '12 THÁNG 9, 2026 · 7 PHÚT ĐỌC', title: 'Portfolio đầu tiên: bắt đầu từ những gì bạn có', intro: 'Không cần chờ đến khi thật giỏi mới bắt đầu ghi lại những điều mình đã làm.', sections: [['Chọn dự án có câu chuyện', 'Bài tập trên lớp, hoạt động câu lạc bộ hay dự án cá nhân đều có thể cho thấy cách bạn suy nghĩ. Chọn một vài ví dụ tiêu biểu thay vì đưa mọi thứ vào cùng lúc.'], ['Cho thấy quá trình', 'Nêu vấn đề, vai trò của bạn, những lựa chọn đã cân nhắc và kết quả. Người xem muốn hiểu bạn đóng góp gì và học được điều gì.'], ['Giữ cho dễ xem', 'Dùng cấu trúc rõ ràng, hình ảnh vừa đủ và đường dẫn hoạt động. Một portfolio gọn gàng, cập nhật thường xuyên sẽ hữu ích hơn một trang cầu kỳ nhưng bỏ dở.']] },
+      'thuc-tap-dau-tien': { category: 'NGHỀ NGHIỆP', date: '05 THÁNG 9, 2026 · 4 PHÚT ĐỌC', title: 'Lần đầu đi thực tập: bạn không cần biết hết mọi thứ', intro: 'Điều quan trọng nhất trong tuần đầu tiên đôi khi chỉ là biết cách đặt câu hỏi.', sections: [['Quan sát cách nhóm làm việc', 'Tìm hiểu lịch họp, cách mọi người trao đổi và nơi lưu tài liệu. Ghi chú lại những điều chưa rõ để hỏi đúng người vào thời điểm phù hợp.'], ['Hỏi câu hỏi cụ thể', 'Thay vì chỉ nói “em chưa hiểu”, hãy nêu phần bạn đã thử, kết quả gặp phải và điều bạn cần xác nhận. Câu hỏi rõ giúp người hướng dẫn hỗ trợ nhanh hơn.'], ['Xin phản hồi sớm', 'Đừng đợi đến cuối kỳ mới biết mình cần cải thiện điều gì. Trao đổi ngắn mỗi tuần giúp bạn tiến bộ đều và chủ động hơn.']] },
+      'ai-ho-tro-hoc': { category: 'KỸ NĂNG', date: '29 THÁNG 8, 2026 · 5 PHÚT ĐỌC', title: 'Dùng AI để học tốt hơn mà vẫn giữ tư duy của mình', intro: 'Công cụ hữu ích nhất là công cụ giúp bạn hiểu sâu hơn, không nghĩ thay bạn.', sections: [['Dùng AI để khơi gợi', 'Nhờ công cụ giải thích một khái niệm theo cách khác, tạo câu hỏi luyện tập hoặc gợi ý dàn ý. Sau đó tự kiểm tra thông tin bằng tài liệu môn học.'], ['Tự làm phần suy nghĩ', 'Hãy thử giải bài, viết lập luận hoặc đưa ra ý tưởng trước. Khi gặp bế tắc, dùng AI để tìm gợi ý rồi tự hoàn thiện câu trả lời.'], ['Minh bạch và có trách nhiệm', 'Tuân theo quy định của lớp, không nhập dữ liệu cá nhân hoặc tài liệu riêng tư, và kiểm tra các thông tin do AI đưa ra. Công cụ có thể sai hoặc thiếu ngữ cảnh.']] },
+      'can-bang-dai-hoc': { category: 'ĐỜI SỐNG', date: '22 THÁNG 8, 2026 · 6 PHÚT ĐỌC', title: 'Cân bằng đại học: nghỉ ngơi cũng là một kỹ năng', intro: 'Bạn không cần phải biến mọi khoảng thời gian thành một việc cần hoàn thành.', sections: [['Nhận ra dấu hiệu cần nghỉ', 'Khó tập trung, cáu gắt hoặc trì hoãn liên tục có thể là lúc bạn cần dừng lại. Nghỉ ngơi ngắn và có chủ đích giúp bạn quay lại với năng lượng tốt hơn.'], ['Tạo khoảng nghỉ thật sự', 'Rời màn hình, đi bộ, uống nước hoặc trò chuyện với bạn bè. Chọn việc khiến đầu óc được tạm rời khỏi bài vở thay vì tiếp tục lướt qua những nội dung gây mệt.'], ['Tìm hỗ trợ khi cần', 'Nếu áp lực kéo dài, hãy chia sẻ với người bạn tin tưởng hoặc tìm đến dịch vụ hỗ trợ sinh viên tại trường. Bạn không cần tự xoay xở một mình.']] }
+    };
+    const id = new URLSearchParams(location.search).get('id');
+    const entry = entries[id];
+    const article = document.querySelector('#article-content');
+    if (!entry) {
+      document.title = 'Bài viết không tìm thấy — Chạm';
+      article.innerHTML = '<h1>Không tìm thấy bài viết này.</h1><p>Bài viết có thể đã được chuyển hoặc đường dẫn không chính xác.</p><a class="button button-dark" href="index.html#articles">Về danh sách bài viết <span>→</span></a>';
+    } else {
+      document.title = entry.title + ' — Chạm';
+      article.innerHTML = `<p class="eyebrow">${entry.category}</p><p class="article-date">${entry.date}</p><h1>${entry.title}</h1><p class="article-lead">${entry.intro}</p><button type="button" class="article-favorite" id="article-favorite">♡ <span>Lưu bài viết</span></button><div class="article-body">${entry.sections.map(([heading, body]) => `<section><h2>${heading}</h2><p>${body}</p></section>`).join('')}</div><a class="back-link" href="index.html#articles">← Xem thêm bài viết</a>`;
+    }
+    const favoriteKey = 'cham-favorites';
+    const favoriteButton = document.querySelector('#article-favorite');
+    if (entry) {
+      const renderFavorite = () => {
+        const ids = JSON.parse(localStorage.getItem(favoriteKey) || '[]');
+        const saved = ids.includes(id);
+        favoriteButton.classList.toggle('is-favorite', saved);
+        favoriteButton.setAttribute('aria-pressed', String(saved));
+        favoriteButton.innerHTML = `${saved ? '♥' : '♡'} <span>${saved ? 'Đã lưu bài viết' : 'Lưu bài viết'}</span>`;
+      };
+      favoriteButton.addEventListener('click', () => {
+        let ids = JSON.parse(localStorage.getItem(favoriteKey) || '[]');
+        ids = ids.includes(id) ? ids.filter(item => item !== id) : [...ids, id];
+        localStorage.setItem(favoriteKey, JSON.stringify(ids)); renderFavorite();
+      });
+      renderFavorite();
+    }
+    const themeButton = document.querySelector('.theme-toggle');
+    const setTheme = dark => {
+      document.body.classList.toggle('dark-theme', dark);
+      themeButton.textContent = dark ? '☀' : '☾';
+      themeButton.setAttribute('aria-label', dark ? 'Chuyển chế độ sáng' : 'Chuyển chế độ tối');
+      localStorage.setItem('cham-theme', dark ? 'dark' : 'light');
+    };
+    setTheme(localStorage.getItem('cham-theme') === 'dark');
+    themeButton.addEventListener('click', () => setTheme(!document.body.classList.contains('dark-theme')));
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#main-nav');
+    menuButton.addEventListener('click', () => {
+      const open = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!open)); nav.classList.toggle('is-open', !open);
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('is-open'); menuButton.setAttribute('aria-expanded', 'false');
+    }));
+    const commentKey = `cham-comments-${id || 'unknown'}`;
+    const commentList = document.querySelector('#comment-list');
+    const renderComments = () => {
+      const comments = JSON.parse(localStorage.getItem(commentKey) || '[]');
+      commentList.innerHTML = comments.length ? comments.map(comment => `<article class="comment"><strong>${escapeHTML(comment.name)}</strong><small>${new Date(comment.time).toLocaleString('vi-VN')}</small><p>${escapeHTML(comment.text)}</p></article>`).join('') : '<p class="empty-comments">Chưa có bình luận. Bạn có thể là người đầu tiên!</p>';
+    };
+    function escapeHTML(value) {
+      return value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+    }
+    renderComments();
+    document.querySelector('#comment-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const comments = JSON.parse(localStorage.getItem(commentKey) || '[]');
+      comments.unshift({ name: form.elements.name.value.trim(), text: form.elements.comment.value.trim(), time: Date.now() });
+      localStorage.setItem(commentKey, JSON.stringify(comments)); form.reset(); renderComments();
+    });
+  </script>
+</body>
+</html>

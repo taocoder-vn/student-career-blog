@@ -19,7 +19,7 @@
     <nav class="nav" id="main-nav" aria-label="Điều hướng chính">
       <a href="#home">Trang chủ</a><a href="#topics">Chủ đề</a><a href="#articles">Bài viết</a><a href="#about">Về Chạm</a>
     </nav>
-    <a class="header-cta" href="#newsletter">Nhận cảm hứng <span>↗</span></a>
+    <div class="header-tools"><button class="theme-toggle" type="button" aria-label="Chuyển chế độ tối" title="Chuyển chế độ sáng/tối">☾</button><a class="header-cta" href="#newsletter">Nhận cảm hứng <span>↗</span></a></div>
   </header>
 
   <main id="home">
@@ -51,13 +51,14 @@
 
     <section class="articles" id="articles"><div class="wrap">
       <div class="section-head article-head"><div><p class="eyebrow">ĐỌC MỘT CHÚT, HAY HƠN MỘT CHÚT</p><h2>Góc đọc <em>tuần này.</em></h2></div><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Tìm bài viết..." aria-label="Tìm bài viết"></label></div>
+      <div class="article-controls"><label class="filter-label">Danh mục <select id="category-filter" aria-label="Lọc theo danh mục"><option value="all">Tất cả bài viết</option><option value="HỌC TẬP">Học tập</option><option value="NGHỀ NGHIỆP">Nghề nghiệp</option><option value="KỸ NĂNG">Kỹ năng</option><option value="ĐỜI SỐNG">Đời sống</option></select></label><button class="favorites-filter" id="favorites-filter" type="button" aria-pressed="false">♡ Chỉ xem bài đã lưu</button></div>
       <div class="article-grid" id="article-grid">
-        <article class="article-card" data-search="lập kế hoạch học tập học"><a class="article-photo photo-one" href="#newsletter" aria-label="Đọc bài lập kế hoạch học tập"><span>HỌC TẬP</span></a><div class="article-info"><small>24 THÁNG 9, 2026 · 6 PHÚT ĐỌC</small><h3><a href="#newsletter">Lập kế hoạch học tập mà không tự làm khó mình</a></h3><p>Một kế hoạch tốt không cần kín lịch. Nó cần đủ rõ để bạn biết bước tiếp theo là gì.</p><a class="read-more" href="#newsletter">Đọc bài <span>→</span></a></div></article>
-        <article class="article-card" data-search="ôn bài nhớ chủ động học"><a class="article-photo photo-two" href="#newsletter" aria-label="Đọc bài ôn tập chủ động"><span>HỌC TẬP</span></a><div class="article-info"><small>18 THÁNG 9, 2026 · 5 PHÚT ĐỌC</small><h3><a href="#newsletter">Ôn bài để nhớ lâu: thử phương pháp nhớ chủ động</a></h3><p>Đọc lại thường tạo cảm giác quen thuộc. Tự nhớ lại mới giúp kiến thức ở lại lâu hơn.</p><a class="read-more" href="#newsletter">Đọc bài <span>→</span></a></div></article>
-        <article class="article-card" data-search="portfolio nghề nghiệp việc làm"><a class="article-photo photo-three" href="#newsletter" aria-label="Đọc bài portfolio"><span>NGHỀ NGHIỆP</span></a><div class="article-info"><small>12 THÁNG 9, 2026 · 7 PHÚT ĐỌC</small><h3><a href="#newsletter">Portfolio đầu tiên: bắt đầu từ những gì bạn có</a></h3><p>Không cần chờ đến khi thật giỏi mới bắt đầu ghi lại những điều mình đã làm.</p><a class="read-more" href="#newsletter">Đọc bài <span>→</span></a></div></article>
-        <article class="article-card" data-search="thực tập phỏng vấn nghề nghiệp"><a class="article-photo photo-four" href="#newsletter" aria-label="Đọc bài thực tập"><span>NGHỀ NGHIỆP</span></a><div class="article-info"><small>05 THÁNG 9, 2026 · 4 PHÚT ĐỌC</small><h3><a href="#newsletter">Lần đầu đi thực tập: bạn không cần biết hết mọi thứ</a></h3><p>Điều quan trọng nhất trong tuần đầu tiên đôi khi chỉ là biết cách đặt câu hỏi.</p><a class="read-more" href="#newsletter">Đọc bài <span>→</span></a></div></article>
-        <article class="article-card" data-search="trí tuệ nhân tạo AI công cụ kỹ năng"><a class="article-photo photo-five" href="#newsletter" aria-label="Đọc bài dùng AI"><span>KỸ NĂNG</span></a><div class="article-info"><small>29 THÁNG 8, 2026 · 5 PHÚT ĐỌC</small><h3><a href="#newsletter">Dùng AI để học tốt hơn mà vẫn giữ tư duy của mình</a></h3><p>Công cụ hữu ích nhất là công cụ giúp bạn hiểu sâu hơn, không nghĩ thay bạn.</p><a class="read-more" href="#newsletter">Đọc bài <span>→</span></a></div></article>
-        <article class="article-card" data-search="cân bằng nghỉ ngơi sức khỏe tinh thần"><a class="article-photo photo-six" href="#newsletter" aria-label="Đọc bài cân bằng"><span>ĐỜI SỐNG</span></a><div class="article-info"><small>22 THÁNG 8, 2026 · 6 PHÚT ĐỌC</small><h3><a href="#newsletter">Cân bằng đại học: nghỉ ngơi cũng là một kỹ năng</a></h3><p>Bạn không cần phải biến mọi khoảng thời gian thành một việc cần hoàn thành.</p><a class="read-more" href="#newsletter">Đọc bài <span>→</span></a></div></article>
+        <article class="article-card" data-search="lập kế hoạch học tập học"><a class="article-photo photo-one" href="article.html?id=plan-hoc-tap" aria-label="Đọc bài lập kế hoạch học tập"><span>HỌC TẬP</span></a><div class="article-info"><small>24 THÁNG 9, 2026 · 6 PHÚT ĐỌC</small><h3><a href="article.html?id=plan-hoc-tap">Lập kế hoạch học tập mà không tự làm khó mình</a></h3><p>Một kế hoạch tốt không cần kín lịch. Nó cần đủ rõ để bạn biết bước tiếp theo là gì.</p><a class="read-more" href="article.html?id=plan-hoc-tap">Đọc bài <span>→</span></a></div></article>
+        <article class="article-card" data-search="ôn bài nhớ chủ động học"><a class="article-photo photo-two" href="article.html?id=on-bai-chu-dong" aria-label="Đọc bài ôn tập chủ động"><span>HỌC TẬP</span></a><div class="article-info"><small>18 THÁNG 9, 2026 · 5 PHÚT ĐỌC</small><h3><a href="article.html?id=on-bai-chu-dong">Ôn bài để nhớ lâu: thử phương pháp nhớ chủ động</a></h3><p>Đọc lại thường tạo cảm giác quen thuộc. Tự nhớ lại mới giúp kiến thức ở lại lâu hơn.</p><a class="read-more" href="article.html?id=on-bai-chu-dong">Đọc bài <span>→</span></a></div></article>
+        <article class="article-card" data-search="portfolio nghề nghiệp việc làm"><a class="article-photo photo-three" href="article.html?id=portfolio-dau-tien" aria-label="Đọc bài portfolio"><span>NGHỀ NGHIỆP</span></a><div class="article-info"><small>12 THÁNG 9, 2026 · 7 PHÚT ĐỌC</small><h3><a href="article.html?id=portfolio-dau-tien">Portfolio đầu tiên: bắt đầu từ những gì bạn có</a></h3><p>Không cần chờ đến khi thật giỏi mới bắt đầu ghi lại những điều mình đã làm.</p><a class="read-more" href="article.html?id=portfolio-dau-tien">Đọc bài <span>→</span></a></div></article>
+        <article class="article-card" data-search="thực tập phỏng vấn nghề nghiệp"><a class="article-photo photo-four" href="article.html?id=thuc-tap-dau-tien" aria-label="Đọc bài thực tập"><span>NGHỀ NGHIỆP</span></a><div class="article-info"><small>05 THÁNG 9, 2026 · 4 PHÚT ĐỌC</small><h3><a href="article.html?id=thuc-tap-dau-tien">Lần đầu đi thực tập: bạn không cần biết hết mọi thứ</a></h3><p>Điều quan trọng nhất trong tuần đầu tiên đôi khi chỉ là biết cách đặt câu hỏi.</p><a class="read-more" href="article.html?id=thuc-tap-dau-tien">Đọc bài <span>→</span></a></div></article>
+        <article class="article-card" data-search="trí tuệ nhân tạo AI công cụ kỹ năng"><a class="article-photo photo-five" href="article.html?id=ai-ho-tro-hoc" aria-label="Đọc bài dùng AI"><span>KỸ NĂNG</span></a><div class="article-info"><small>29 THÁNG 8, 2026 · 5 PHÚT ĐỌC</small><h3><a href="article.html?id=ai-ho-tro-hoc">Dùng AI để học tốt hơn mà vẫn giữ tư duy của mình</a></h3><p>Công cụ hữu ích nhất là công cụ giúp bạn hiểu sâu hơn, không nghĩ thay bạn.</p><a class="read-more" href="article.html?id=ai-ho-tro-hoc">Đọc bài <span>→</span></a></div></article>
+        <article class="article-card" data-search="cân bằng nghỉ ngơi sức khỏe tinh thần"><a class="article-photo photo-six" href="article.html?id=can-bang-dai-hoc" aria-label="Đọc bài cân bằng"><span>ĐỜI SỐNG</span></a><div class="article-info"><small>22 THÁNG 8, 2026 · 6 PHÚT ĐỌC</small><h3><a href="article.html?id=can-bang-dai-hoc">Cân bằng đại học: nghỉ ngơi cũng là một kỹ năng</a></h3><p>Bạn không cần phải biến mọi khoảng thời gian thành một việc cần hoàn thành.</p><a class="read-more" href="article.html?id=can-bang-dai-hoc">Đọc bài <span>→</span></a></div></article>
       </div><p class="no-results" id="no-results" hidden>Chưa tìm thấy bài viết phù hợp. Thử từ khóa khác nhé.</p>
     </div></section>
 
@@ -80,15 +81,62 @@
     const search = document.querySelector('#search');
     const cards = [...document.querySelectorAll('.article-card')];
     const noResults = document.querySelector('#no-results');
-    search.addEventListener('input', () => {
+    const categoryFilter = document.querySelector('#category-filter');
+    const favoritesFilter = document.querySelector('#favorites-filter');
+    const favoritesKey = 'cham-favorites';
+    const getFavorites = () => JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+    const themeButton = document.querySelector('.theme-toggle');
+    const setTheme = dark => {
+      document.body.classList.toggle('dark-theme', dark);
+      themeButton.textContent = dark ? '☀' : '☾';
+      themeButton.setAttribute('aria-label', dark ? 'Chuyển chế độ sáng' : 'Chuyển chế độ tối');
+      localStorage.setItem('cham-theme', dark ? 'dark' : 'light');
+    };
+    setTheme(localStorage.getItem('cham-theme') === 'dark');
+    themeButton.addEventListener('click', () => setTheme(!document.body.classList.contains('dark-theme')));
+    function refreshCards() {
       const term = search.value.trim().toLocaleLowerCase('vi');
+      const category = categoryFilter.value;
+      const onlyFavorites = favoritesFilter.getAttribute('aria-pressed') === 'true';
+      const favoriteIds = getFavorites();
       let visible = 0;
-      cards.forEach(card => {
-        const match = card.dataset.search.toLocaleLowerCase('vi').includes(term) || card.innerText.toLocaleLowerCase('vi').includes(term);
-        card.hidden = !match; if (match) visible++;
+      cards.forEach((card, index) => {
+        const id = card.dataset.id;
+        const matchesSearch = (card.dataset.search + ' ' + card.innerText).toLocaleLowerCase('vi').includes(term);
+        const matchesCategory = category === 'all' || card.dataset.category === category;
+        const matchesFavorite = !onlyFavorites || favoriteIds.includes(id);
+        card.hidden = !(matchesSearch && matchesCategory && matchesFavorite);
+        if (!card.hidden) visible++;
+        const button = card.querySelector('.favorite-button');
+        const saved = favoriteIds.includes(id);
+        button.classList.toggle('is-favorite', saved);
+        button.setAttribute('aria-pressed', String(saved));
+        button.setAttribute('aria-label', saved ? 'Bỏ lưu bài viết' : 'Lưu bài viết yêu thích');
       });
       noResults.hidden = visible > 0;
+    }
+    const articleIds = ['plan-hoc-tap', 'on-bai-chu-dong', 'portfolio-dau-tien', 'thuc-tap-dau-tien', 'ai-ho-tro-hoc', 'can-bang-dai-hoc'];
+    cards.forEach((card, index) => {
+      card.dataset.id = articleIds[index];
+      card.dataset.category = card.querySelector('.article-photo span').textContent.trim();
+      const button = document.createElement('button');
+      button.className = 'favorite-button'; button.type = 'button'; button.textContent = '♡';
+      button.addEventListener('click', () => {
+        const saved = getFavorites();
+        const next = saved.includes(card.dataset.id) ? saved.filter(id => id !== card.dataset.id) : [...saved, card.dataset.id];
+        localStorage.setItem(favoritesKey, JSON.stringify(next)); refreshCards();
+      });
+      card.querySelector('.article-photo').append(button);
     });
+    search.addEventListener('input', refreshCards);
+    categoryFilter.addEventListener('change', refreshCards);
+    favoritesFilter.addEventListener('click', () => {
+      const enabled = favoritesFilter.getAttribute('aria-pressed') !== 'true';
+      favoritesFilter.setAttribute('aria-pressed', String(enabled));
+      favoritesFilter.textContent = enabled ? '♥ Đang xem bài đã lưu' : '♡ Chỉ xem bài đã lưu';
+      refreshCards();
+    });
+    refreshCards();
     document.querySelector('#newsletter-form').addEventListener('submit', event => {
       event.preventDefault();
       document.querySelector('#form-message').textContent = 'Cảm ơn bạn! Chức năng đăng ký cần được kết nối với dịch vụ email.';
