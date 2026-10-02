@@ -14,7 +14,7 @@
 <body>
   <div class="announcement">MỘT GÓC NHỎ ĐỂ BẠN LỚN LÊN <span>✳</span> BẮT ĐẦU TỪ HÔM NAY</div>
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="Chạm, về đầu trang"><span class="brand-icon">c.</span> chạm<span class="brand-period">.</span></a>
+    <a class="brand" href="#home" aria-label="Login, về đầu trang"><span class="brand-icon">c.</span> <span id="brand-name">Login</span><span class="brand-period">.</span></a>
     <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
     <nav class="nav" id="main-nav" aria-label="Điều hướng chính">
       <a href="#home">Trang chủ</a><a href="#topics">Chủ đề</a><a href="#articles">Bài viết</a><a href="#about">Về Chạm</a>
@@ -190,6 +190,8 @@
     const updateProfileButton = () => {
       const profile = JSON.parse(localStorage.getItem(profileKey) || 'null');
       loginTrigger.textContent = profile ? `Chào, ${profile.name}` : 'Đăng nhập';
+      document.querySelector('#brand-name').textContent = profile ? profile.name : 'Login';
+      document.querySelector('.site-header .brand').setAttribute('aria-label', `${profile ? profile.name : 'Login'}, về đầu trang`);
       logoutTrigger.hidden = !profile;
     };
     loginTrigger.addEventListener('click', () => {
