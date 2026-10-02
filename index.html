@@ -169,16 +169,32 @@
     const loginTrigger = document.querySelector('#login-trigger');
     const logoutTrigger = document.querySelector('#logout-trigger');
     const profileKey = 'cham-demo-profile';
+    const profileForm = document.querySelector('#login-form');
+    let editingProfile = false;
+    const setProfileEditMode = (profile = null) => {
+      editingProfile = Boolean(profile);
+      const emailField = profileForm.elements.email;
+      const passwordField = profileForm.elements.password;
+      const emailLabel = profileForm.querySelector('label[for="login-email"]');
+      const passwordLabel = profileForm.querySelector('label[for="login-password"]');
+      emailField.hidden = passwordField.hidden = emailLabel.hidden = passwordLabel.hidden = editingProfile;
+      emailField.required = passwordField.required = !editingProfile;
+      profileForm.elements.name.value = profile?.name || '';
+      emailField.value = profile?.email || '';
+      document.querySelector('#login-title').textContent = editingProfile ? 'Đổi tên hiển thị' : 'Đăng nhập demo.';
+      document.querySelector('.login-submit').innerHTML = editingProfile ? 'Lưu tên mới <span>↗</span>' : 'Tiếp tục <span>↗</span>';
+      document.querySelector('#login-message').textContent = editingProfile
+        ? 'Nhập tên mới để thay tên đang hiển thị trên thiết bị này.'
+        : 'Bản demo không xác thực tài khoản và không lưu mật khẩu.';
+    };
     const updateProfileButton = () => {
       const profile = JSON.parse(localStorage.getItem(profileKey) || 'null');
       loginTrigger.textContent = profile ? `Chào, ${profile.name}` : 'Đăng nhập';
       logoutTrigger.hidden = !profile;
     };
     loginTrigger.addEventListener('click', () => {
-      if (localStorage.getItem(profileKey)) {
-        document.querySelector('#login-title').textContent = 'Bạn đã đăng nhập demo';
-        document.querySelector('#login-message').textContent = 'Trạng thái này chỉ có trên trình duyệt và thiết bị hiện tại.';
-      }
+      const profile = JSON.parse(localStorage.getItem(profileKey) || 'null');
+      setProfileEditMode(profile);
       loginDialog.showModal();
     });
     document.querySelector('.dialog-close').addEventListener('click', () => loginDialog.close());
@@ -186,17 +202,23 @@
     document.querySelector('#login-form').addEventListener('submit', event => {
       event.preventDefault();
       const form = event.currentTarget;
-      const profile = { name: form.elements.name.value.trim(), email: form.elements.email.value.trim() };
+      const previousProfile = JSON.parse(localStorage.getItem(profileKey) || 'null');
+      const profile = {
+        name: form.elements.name.value.trim(),
+        email: editingProfile ? previousProfile.email : form.elements.email.value.trim()
+      };
       localStorage.setItem(profileKey, JSON.stringify(profile));
-      document.querySelector('#login-message').textContent = `Xin chào ${profile.name}! Bạn đang dùng phiên đăng nhập demo.`;
+      document.querySelector('#login-message').textContent = editingProfile
+        ? `Đã đổi tên hiển thị thành ${profile.name}.`
+        : `Xin chào ${profile.name}! Bạn đang dùng phiên đăng nhập demo.`;
+      editingProfile = false;
       updateProfileButton();
       window.setTimeout(() => loginDialog.close(), 900);
     });
     logoutTrigger.addEventListener('click', () => {
       localStorage.removeItem(profileKey);
-      document.querySelector('#login-form').reset();
-      document.querySelector('#login-title').innerHTML = 'Đăng nhập <em>demo.</em>';
-      document.querySelector('#login-message').textContent = 'Bản demo không xác thực tài khoản và không lưu mật khẩu.';
+      profileForm.reset();
+      setProfileEditMode();
       updateProfileButton();
     });
     updateProfileButton();
